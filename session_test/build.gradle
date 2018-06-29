@@ -1,0 +1,32 @@
+plugins {
+  id 'io.vertx.vertx-plugin' version '0.0.8'
+}
+
+repositories {
+  jcenter()
+}
+
+vertx {
+  mainVerticle = 'com.test.Main'
+}
+
+dependencies {
+    // vertx 3.5
+    compile 'io.vertx:vertx-core:3.5.2'
+    compile 'io.vertx:vertx-web:3.5.2'
+    
+    // hazelcast
+    compile 'io.vertx:vertx-hazelcast:3.5.1'
+    
+    // slf4j
+    compile 'ch.qos.logback:logback-classic:1.2.3'    
+}
+
+sourceSets {
+	resources {
+		copy {
+			from "conf"
+			into "src/main/resources"
+		}	
+	}
+}
